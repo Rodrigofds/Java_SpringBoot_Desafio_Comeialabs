@@ -21,7 +21,8 @@ public class ListaTarefasService {
 	public List<Tarefas> listarTarefas(){
 		return tarefasRepository.findAll();
 	}
-	
+
+	@Transactional
 	public ResponseEntity<Tarefas> encontrarTarefa(Long tarefaId) {
 		return tarefasRepository.findById(tarefaId)
 				.map(tarefa -> ResponseEntity.ok().body(tarefa))
@@ -38,7 +39,18 @@ public class ListaTarefasService {
 		tarefasRepository.deleteById(tarefaId);
 	}
 
-	
+	@Transactional
+	public ResponseEntity<Tarefas> atualizarTarefa(Long tarefaId, Tarefas tarefaAtualizada) {
+		return tarefasRepository.findById(tarefaId)
+				.map(tarefa -> {
+					tarefa.setCodigo(tarefaId);
+					tarefa.setData(tarefaAtualizada.getData());
+					tarefa.setDescricao(tarefaAtualizada.getDescricao());
+					tarefa.setStatus(tarefaAtualizada.getStatus());
+					tarefasRepository.save(tarefa);
+					return ResponseEntity.ok().body(tarefa);
+				}).orElse(ResponseEntity.notFound().build());
+	}
 
 	
 }
