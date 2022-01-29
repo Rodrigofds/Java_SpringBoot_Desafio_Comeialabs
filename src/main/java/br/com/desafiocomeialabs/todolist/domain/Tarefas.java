@@ -1,6 +1,6 @@
-package br.com.desafiocomeialabs.todolist.entities;
+package br.com.desafiocomeialabs.todolist.domain;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,16 +9,18 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 @Getter
 @Setter
+@AllArgsConstructor
 @ToString
 @Entity
-@Table(name = "tarefa")
-public class Tarefa {
+@Table(name = "tarefas")
+public class Tarefas {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,8 +29,7 @@ public class Tarefa {
 	@NotBlank
 	private String descricao;
 
-	@NotBlank
-	private LocalDateTime data;
+	private LocalDate data;
 	
 	private Boolean status;
 
