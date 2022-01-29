@@ -35,8 +35,12 @@ public class ListaTarefasService {
 	}
 	
 	@Transactional
-	public void apagarTarefa(Long tarefaId) {
+	public ResponseEntity<Void> apagarTarefa(Long tarefaId) {
+		if(!tarefasRepository.existsById(tarefaId))
+			return ResponseEntity.notFound().build();
+		
 		tarefasRepository.deleteById(tarefaId);
+		return ResponseEntity.noContent().build();		
 	}
 
 	@Transactional
