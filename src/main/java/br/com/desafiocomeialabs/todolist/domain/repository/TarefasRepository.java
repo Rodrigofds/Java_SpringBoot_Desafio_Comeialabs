@@ -10,5 +10,5 @@ import br.com.desafiocomeialabs.todolist.domain.Tarefas;
 @Repository
 public interface TarefasRepository extends JpaRepository<Tarefas, Long>{
 
-//	List<Tarefas> findByDescricao(String descricao);
+	List<Tarefas> findByDescricao(String descricao);
 }

@@ -1,6 +1,6 @@
 package br.com.desafiocomeialabs.todolist.domain;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,14 +9,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 @Getter
 @Setter
-@RequiredArgsConstructor
 @ToString
 @Entity
 @Table(name = "tarefas")
@@ -29,7 +29,8 @@ public class Tarefas {
 	@NotBlank
 	private String descricao;
 
-	private LocalDate data;
+	@CreationTimestamp
+	private LocalDateTime data;
 	
 	private Boolean status;
 

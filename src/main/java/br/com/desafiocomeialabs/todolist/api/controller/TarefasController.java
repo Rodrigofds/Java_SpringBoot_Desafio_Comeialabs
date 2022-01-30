@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,12 +18,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.desafiocomeialabs.todolist.domain.Tarefas;
 import br.com.desafiocomeialabs.todolist.domain.service.ListaTarefasService;
+import lombok.AllArgsConstructor;
 
+@AllArgsConstructor
 @RestController
 @RequestMapping("/")
 public class TarefasController {
 
-	@Autowired
 	private ListaTarefasService tarefasService;
 	
 	@GetMapping("/tarefas")
