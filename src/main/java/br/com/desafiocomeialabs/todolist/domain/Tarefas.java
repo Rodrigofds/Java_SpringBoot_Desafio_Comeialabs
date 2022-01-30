@@ -1,6 +1,8 @@
 package br.com.desafiocomeialabs.todolist.domain;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,5 +35,9 @@ public class Tarefas {
 	private LocalDateTime data;
 	
 	private Boolean status;
+	
+	public Date showData() {
+		return Date.from(this.data.atZone(ZoneId.systemDefault()).toInstant());
+	}
 
 }

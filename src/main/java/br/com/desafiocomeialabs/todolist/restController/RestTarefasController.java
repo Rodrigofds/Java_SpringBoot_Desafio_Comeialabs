@@ -1,4 +1,4 @@
-package br.com.desafiocomeialabs.todolist.api.controller;
+package br.com.desafiocomeialabs.todolist.restController;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/")
-public class TarefasController {
+public class RestTarefasController {
 
 	private ListaTarefasService tarefasService;
 	
