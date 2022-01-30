@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+          "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<!-- Base Define -->
+   <definition name="default" template="/WEB-INF/layouts/default.jsp">  
+       <put-attribute name="menu" value="/WEB-INF/views/menu.jsp" />     
+       <put-attribute name="notificacao" value="/WEB-INF/views/notificacao.jsp"/>   
+       <put-attribute name="body" value=""/> 
+   </definition>     
+
+    <!-- Home Page  -->
+    <definition name="homePage" extends="default">
+        <put-attribute name="title" value="Bem vindo" />
+        <put-attribute name="body" value="/WEB-INF/views/home.jsp" />
+    </definition>
+    
+    <definition name="tarefasPage" extends="default">
+        <put-attribute name="title" value="Lista de Tarefas" />
+        <put-attribute name="body" value="/WEB-INF/views/tarefasPage.jsp" />
+    </definition>
+    
+    <definition name="formulario" extends="default">
+        <put-attribute name="title" value="Lista de Tarefas" />
+        <put-attribute name="body" value="/WEB-INF/views/formulario.jsp" />
+    </definition>
+    
+    <definition name="tarefasPageAjax" extends="default">
+        <put-attribute name="title" value="Lista de Tarefas com Ajax" />
+        <put-attribute name="body" value="/WEB-INF/views/tarefasPageAjax.jsp" />
+    </definition>
+
+
+
+</tiles-definitions>
